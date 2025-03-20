@@ -45,5 +45,5 @@ Este é um aplicativo desktop desenvolvido em Python que permite aos médicos fi
 3. Rode o Compose
     docker-compose up
 
-4. Instale o Xming no Windows e execute o comando abaixo:
-   111.11.11.1:0 é o IP da máquina que está rodando o Xming, caso seja outro IP, alterar para o IP correto no docker compose.
+4. Instale o Xming no Windows e o execute:
+   111.11.11.1:0 é o local que está rodando o Xming, alterar para o IP correto no docker compose.
