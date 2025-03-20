@@ -5,6 +5,6 @@ services:
     image: project-k
     container_name: project-k
     environment:
-      - DISPLAY=172.29.48.1:0  # Ajuste o DISPLAY conforme necessário
+      - DISPLAY=111.11.1.1:0  # Ajuste o DISPLAY conforme necessário
     volumes:
       - .:/app  # Monta a pasta atual no diretório /app do container

@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from src.controllers.home_controller import HomeController
 
 class app:
     def __init__(self, root):
@@ -10,5 +10,5 @@ class app:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = app(root)
+    app = HomeController(root)
     root.mainloop()
