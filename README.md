@@ -24,7 +24,7 @@ Este é um aplicativo desktop desenvolvido em Python que permite aos médicos fi
 ## Tecnologias Utilizadas
 
 - **Linguagem**: Python
-- **Interface Gráfica**: PyQt5
+- **Interface Gráfica**: tkTinker
 - **Banco de Dados**: SQLite
 - **Gráficos**: Matplotlib
 - **Gerenciamento de Dependências**: pip
@@ -46,4 +46,4 @@ Este é um aplicativo desktop desenvolvido em Python que permite aos médicos fi
     docker-compose up
 
 4. Instale o Xming no Windows e execute o comando abaixo:
-172.29.48.1:0 é o IP da máquina que está rodando o Xming, caso seja outro IP, alterar para o IP correto no docker compose.
+   111.11.11.1:0 é o IP da máquina que está rodando o Xming, caso seja outro IP, alterar para o IP correto no docker compose.
