@@ -3,10 +3,11 @@ from PyQt5 import uic
 from src import database
 
 class ListarPacientes(QWidget):
-    def __init__(self, medico_id):
+    def __init__(self, medico_id, master):
         super().__init__()
         uic.loadUi("ui/listar_pacientes.ui", self)
 
+        self.master = master
         self.medico_id = medico_id
         self.setWindowTitle("Listar Pacientes")
 
@@ -18,7 +19,7 @@ class ListarPacientes(QWidget):
         pacientes = database.listar_pacientes_por_medico(self.medico_id)
         
         self.tableWidget.setRowCount(len(pacientes))
-        self.tableWidget.setColumnCount(2)  # Aqui você pode adicionar mais colunas se necessário
+        self.tableWidget.setColumnCount(2)  
 
         for row, paciente in enumerate(pacientes):
             self.tableWidget.setItem(row, 0, QTableWidgetItem(paciente[0]))  # Nome
@@ -26,4 +27,6 @@ class ListarPacientes(QWidget):
 
     def voltar(self):
         self.close()
+        self.master.show()
+
 

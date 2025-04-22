@@ -25,13 +25,11 @@ class Master(QWidget):
 
 
     def listar_pacientes(self):
-        self.janela_listar_pacientes = ListarPacientes(self.medico_id)
+        self.janela_listar_pacientes = ListarPacientes(self.medico_id, self)
         self.janela_listar_pacientes.show()
         self.hide()
 
     def cadastrar_paciente(self):
-        self.labelMensagem.setStyleSheet("color: green;")
-        self.labelMensagem.setText("Função de cadastro de paciente em construção.")
         self.janela_Cadastrar_Paciente = CadastroPaciente(self, self.medico_id)
         self.janela_Cadastrar_Paciente.show()
         self.hide()

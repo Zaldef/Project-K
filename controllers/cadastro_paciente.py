@@ -14,6 +14,8 @@ class CadastroPaciente(QWidget):
         self.master = master
         self.medico_id = medico_id
 
+        self.botaoVoltar.clicked.connect(self.voltar)
+
     def cadastrar_paciente(self):
         # Captura os dados do paciente
         identificacao = self.inputIdentificacao.text().strip()
@@ -36,3 +38,7 @@ class CadastroPaciente(QWidget):
         else:
             self.labelMensagem.setStyleSheet("color: red;")
             self.labelMensagem.setText("Erro ao cadastrar paciente.")
+    
+    def voltar(self):
+        self.close()
+        self.master.show()

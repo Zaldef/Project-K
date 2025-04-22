@@ -59,6 +59,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QPushButton" name="botaoVoltar">
+     <property name="text">
+      <string>Voltar</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QLabel" name="labelMensagem">
      <property name="text">
       <string/>
