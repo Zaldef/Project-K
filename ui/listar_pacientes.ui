@@ -1,0 +1,48 @@
+<ui version="4.0">
+ <class>ListarPacientes</class>
+ <widget class="QWidget" name="ListarPacientes">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Listar Pacientes</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="labelTitulo">
+     <property name="text">
+      <string>Pacientes Cadastrados</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="columnCount">
+      <number>2</number>
+     </property>
+     <property name="horizontalHeaderLabels">
+      <stringlist>
+       <string>Nome</string>
+       <string>Prontuário Eletrônico</string>
+      </stringlist>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="botaoVoltar">
+     <property name="text">
+      <string>Voltar</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+</ui>

@@ -21,16 +21,15 @@ class Cadastro(QWidget):
         if not login or not senha or not nome:
             self.labelMensagem.setStyleSheet("color: red;")
             self.labelMensagem.setText("Preencha login e senha para cadastrar.")
-            return
-
-        sucesso = database.cadastrar_medico(login, senha, nome)
-        if sucesso:
-            self.login_window.labelMensagem.setStyleSheet("color: green;")
-            self.login_window.labelMensagem.setText("Cadastro realizado com sucesso.")
-            self.close()
-            self.login_window.show()
         else:
-            self.login_windowlabelMensagem.setStyleSheet("color: red;")
-            self.login_windowlabelMensagem.setText("Login já existe.")
-            self.close()
-            self.login_window.show()
+            sucesso = database.cadastrar_medico(login, senha, nome)
+            if sucesso:
+                self.login_window.labelMensagem.setStyleSheet("color: green;")
+                self.login_window.labelMensagem.setText("Cadastro realizado com sucesso.")
+                self.close()
+                self.login_window.show()
+            else:
+                self.login_windowlabelMensagem.setStyleSheet("color: red;")
+                self.login_windowlabelMensagem.setText("Login já existe.")
+                self.close()
+                self.login_window.show()

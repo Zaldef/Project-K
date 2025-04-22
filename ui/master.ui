@@ -27,6 +27,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QPushButton" name="botaoListarPacientes">
+        <property name="text">
+            <string>Listar Pacientes</string>
+        </property>
+    </widget>
+    </item>
+   <item>
     <widget class="QPushButton" name="botaoCadastrarPaciente">
      <property name="text">
       <string>Cadastrar Paciente</string>
