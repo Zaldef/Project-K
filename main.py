@@ -1,14 +1,16 @@
-import tkinter as tk
-from tkinter import messagebox
+import sys
+from PyQt5.QtWidgets import QApplication 
 
-class app:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Project-K")
-        self.root.geometry("1336x768")
+from controllers.login import Login
+from src.database import inicializar_banco
 
+def main():
+    inicializar_banco()
+
+    app = QApplication(sys.argv)
+    login_window = Login()
+    login_window.show()
+    sys.exit(app.exec_())
 
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = app(root)
-    root.mainloop()
+    main()

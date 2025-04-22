@@ -1,0 +1,79 @@
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QWidget" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Painel do Médico</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="labelBemVindo">
+     <property name="text">
+      <string>Bem-vindo, Doutor(a)</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="styleSheet">
+      <string>font-size: 14pt; font-weight: bold;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="botaoCadastrarPaciente">
+     <property name="text">
+      <string>Cadastrar Paciente</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="botaoCadastrarExame">
+     <property name="text">
+      <string>Cadastrar Exame</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="botaoVisualizarGraficos">
+     <property name="text">
+      <string>Visualizar Gráficos</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="botaoGerarRelatorios">
+     <property name="text">
+      <string>Gerar Relatórios</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="botaoSair">
+     <property name="text">
+      <string>Sair</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelMensagem">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="styleSheet">
+      <string>color: gray; font-size: 10pt;</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+</ui>

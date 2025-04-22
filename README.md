@@ -7,7 +7,7 @@ Este é um aplicativo desktop desenvolvido em Python que permite aos médicos fi
 ## Funcionalidades Principais
 
 - **Cadastro de Pacientes**:
-  - Cadastrar informações básicas dos pacientes (RM, identificação).
+  - Cadastrar informações básicas dos pacientes (PE, identificação).
 - **Cadastro de Exames**:
   - Cadastrar exames em um formato padrão (dados de amplitude de movimento, etc.).
 - **Visualização de Gráficos**:
@@ -26,7 +26,6 @@ Este é um aplicativo desktop desenvolvido em Python que permite aos médicos fi
 - **Banco de Dados**: SQLite
 - **Gráficos**: Matplotlib
 - **Gerenciamento de Dependências**: pip
-- **Containerização**: Docker
 
 ---
 
@@ -36,12 +35,3 @@ Este é um aplicativo desktop desenvolvido em Python que permite aos médicos fi
 
 1. Clone o repositório:
    git clone https://github.com/seu-usuario/seu-repositorio.git
-
-2. Construa a imagem Docker:
-   docker build -t project-k .
-
-3. Rode o Compose
-    docker-compose up
-
-4. Instale o Xming no Windows e execute o comando abaixo:
-172.29.48.1:0 é o IP da máquina que está rodando o Xming, caso seja outro IP, alterar para o IP correto no docker compose.
