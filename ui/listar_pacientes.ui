@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,12 +26,13 @@
    <item>
     <widget class="QTableWidget" name="tableWidget">
      <property name="columnCount">
-      <number>2</number>
+      <number>3</number>
      </property>
      <property name="horizontalHeaderLabels">
       <stringlist>
        <string>Nome</string>
-       <string>Prontuário Eletrônico</string>
+       <string>P. E.</string>
+       <string>Ações</string>
       </stringlist>
      </property>
     </widget>

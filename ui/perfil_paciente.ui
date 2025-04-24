@@ -1,0 +1,76 @@
+<ui version="4.0">
+ <class>PerfilPaciente</class>
+ <widget class="QWidget" name="PerfilPaciente">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Perfil do Paciente</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+
+   <!-- Nome do Paciente -->
+   <item>
+    <widget class="QLabel" name="labelNome">
+     <property name="text">
+      <string>Nome: [Carregando...]</string>
+     </property>
+    </widget>
+   </item>
+
+   <!-- Prontuário -->
+   <item>
+    <widget class="QLabel" name="labelProntuario">
+     <property name="text">
+      <string>Prontuário: [Carregando...]</string>
+     </property>
+    </widget>
+   </item>
+
+   <!-- Título da tabela -->
+   <item>
+    <widget class="QLabel" name="labelTituloExames">
+     <property name="text">
+      <string>Exames do Paciente</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+
+   <!-- Tabela de exames -->
+   <item>
+    <widget class="QTableWidget" name="tableExames">
+     <property name="columnCount">
+      <number>3</number>
+     </property>
+     <property name="horizontalHeaderLabels">
+      <stringlist>
+       <string>Data</string>
+       <string>Tipo</string>
+       <string>Descrição</string>
+      </stringlist>
+     </property>
+    </widget>
+   </item>
+
+   <!-- Botão voltar -->
+   <item>
+    <widget class="QPushButton" name="botaoVoltar">
+     <property name="text">
+      <string>Voltar</string>
+     </property>
+    </widget>
+   </item>
+
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

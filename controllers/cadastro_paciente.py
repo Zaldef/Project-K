@@ -28,7 +28,7 @@ class CadastroPaciente(QWidget):
             return
 
         # Chama a função para cadastrar no banco de dados
-        sucesso = database.cadastrar_paciente(identificacao, prontuario, self.medico_id)
+        sucesso = database.cadastrar_paciente(prontuario, identificacao, self.medico_id)
         if sucesso:
             self.master.labelMensagem.setStyleSheet("color: green;")
             self.master.labelMensagem.setText("Paciente cadastrado com sucesso!")

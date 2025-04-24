@@ -92,7 +92,15 @@ def cadastrar_paciente(prontuario, identificacao, medico_id):
 def listar_pacientes_por_medico(medico_id):
     conn = conectar()
     cursor = conn.cursor()
-    cursor.execute("SELECT identificacao, prontuario FROM paciente WHERE medico_id = ?", (medico_id,))
+    cursor.execute("SELECT id,identificacao, prontuario FROM paciente WHERE medico_id = ?", (medico_id,))
     pacientes = cursor.fetchall()
     conn.close()
     return pacientes
+
+def obter_dados_paciente(paciente_id):
+    conn = conectar()
+    cursor = conn.cursor()
+    cursor.execute("SELECT identificacao, prontuario FROM paciente WHERE id = ?", (paciente_id,))
+    resultado = cursor.fetchone()
+    conn.close()
+    return resultado if resultado else None
