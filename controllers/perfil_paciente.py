@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QWidget, QTableWidgetItem, QHeaderView
 from PyQt5 import uic
 from src import database  # Presumindo que você vá adicionar um método de listar exames por paciente
 
@@ -32,6 +32,8 @@ class PerfilPaciente(QWidget):
 
         self.tableExames.setRowCount(len(exames))
         self.tableExames.setColumnCount(3)
+        self.tableExames.horizontalHeader().setStretchLastSection(True)
+        self.tableExames.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)  # precisa importar isso
 
         for row, exame in enumerate(exames):
             data, tipo, descricao = exame

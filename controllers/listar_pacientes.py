@@ -1,7 +1,8 @@
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QHeaderView, QHBoxLayout
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QHeaderView, QHBoxLayout, QMessageBox
 from PyQt5 import uic
 from src import database
 from controllers.perfil_paciente import PerfilPaciente
+from controllers.editar_paciente import EditarPaciente
 
 class ListarPacientes(QWidget):
     def __init__(self, medico_id, master):
@@ -53,12 +54,28 @@ class ListarPacientes(QWidget):
         self.close()
 
     def editar_paciente(self, paciente_id):
-        # Aqui você pode implementar a lógica para editar o paciente
-        print(f"Editar paciente com ID: {paciente_id}")
+        self.edita_paciente = EditarPaciente(paciente_id, self)
+        self.edita_paciente.show()
+        self.hide()
     
     def excluir_paciente(self, paciente_id):
-        # Aqui você pode implementar a lógica para excluir o paciente
-        print(f"Excluir paciente com ID: {paciente_id}")
+        resposta = QMessageBox.question(
+            self,
+            "Confirmação",
+            "Tem certeza que deseja excluir este paciente?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if resposta == QMessageBox.Yes:
+            print(f"Excluindo paciente com ID: {paciente_id}")
+            sucesso = database.excluir_paciente(paciente_id)
+
+            if sucesso:
+                QMessageBox.information(self, "Sucesso", "Paciente excluído com sucesso.")
+                self.carregar_pacientes()
+            else:
+                QMessageBox.critical(self, "Erro", "Erro ao excluir o paciente.")
+
 
     def voltar(self):
         self.close()

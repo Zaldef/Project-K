@@ -104,3 +104,24 @@ def obter_dados_paciente(paciente_id):
     resultado = cursor.fetchone()
     conn.close()
     return resultado if resultado else None
+
+def excluir_paciente(paciente_id):
+    try:
+        conn = conectar()
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM paciente WHERE id = ?", (paciente_id,))
+        conn.commit()
+        conn.close()
+        return True
+    except sqlite3.Error:
+        return False
+    
+def atualizar_paciente(paciente_id, nome, prontuario):
+    conn = conectar()
+    cursor = conn.cursor()
+    cursor.execute(
+        "UPDATE paciente SET identificacao = ?, prontuario = ? WHERE id = ?",
+        (nome, prontuario, paciente_id)
+    )
+    conn.commit()
+    conn.close()

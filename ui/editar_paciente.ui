@@ -1,0 +1,67 @@
+<ui version="4.0">
+ <class>EditarPaciente</class>
+ <widget class="QWidget" name="EditarPaciente">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Editar Paciente</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+
+   <item>
+    <widget class="QLabel" name="labelTitulo">
+     <property name="text">
+      <string>Editar Informações do Paciente</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QLineEdit" name="inputNome">
+     <property name="placeholderText">
+      <string>Nome do Paciente</string>
+     </property>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QLineEdit" name="inputProntuario">
+     <property name="placeholderText">
+      <string>Prontuário Eletrônico</string>
+     </property>
+    </widget>
+   </item>
+
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayoutBotoes">
+     <item>
+      <widget class="QPushButton" name="botaoSalvar">
+       <property name="text">
+        <string>Salvar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="botaoCancelar">
+       <property name="text">
+        <string>Cancelar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
