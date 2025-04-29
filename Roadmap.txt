@@ -12,3 +12,6 @@ QMessageBOX
 29/04
 REMOVER mensagem pos cadastro de paciente e subistituir por uma QMessageBox
 ADICIONAR link para cadastro de exame
+
+
+

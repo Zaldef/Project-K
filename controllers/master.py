@@ -3,6 +3,7 @@ from PyQt5 import uic
 from src import database
 from controllers.cadastro_paciente import CadastroPaciente
 from controllers.listar_pacientes import ListarPacientes
+from controllers.cadastro_exame import CadastroExame
 
 
 class Master(QWidget):
@@ -35,8 +36,9 @@ class Master(QWidget):
         self.hide()
 
     def cadastrar_exame(self):
-        self.labelMensagem.setStyleSheet("color: green;")
-        self.labelMensagem.setText("Função de cadastro de exame em construção.")
+        self.prox = CadastroExame(1, self.medico_id, self) # Aqui você pode passar o ID do paciente que deseja cadastrar o exame
+        self.prox.show()
+        self.hide()
 
     def visualizar_graficos(self):
         self.labelMensagem.setStyleSheet("color: green;")
