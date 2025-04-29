@@ -4,6 +4,7 @@ from src import database
 from controllers.cadastro_paciente import CadastroPaciente
 from controllers.listar_pacientes import ListarPacientes
 from controllers.cadastro_exame import CadastroExame
+from controllers.visualizar_grafico import VisualizarGraficos
 
 
 class Master(QWidget):
@@ -37,13 +38,15 @@ class Master(QWidget):
         self.hide()
 
     def cadastrar_exame(self):
-        self.prox = CadastroExame(self.paciente_id, self.medico_id, self)
+        self.prox = CadastroExame(1, self.medico_id, self) # Aqui você pode passar o ID do paciente que deseja cadastrar o exame
         self.prox.show()
         self.hide()
 
     def visualizar_graficos(self):
-        QMessageBox.warning(self, "Erro", "Funcionalidade não implementada.")
-        
+        self.prox = VisualizarGraficos("paciente1_20250429170307")  # Aqui você pode passar o ID do exame que deseja visualizar
+        self.prox.show()
+        self.hide()
+
     def gerar_relatorios(self):
         QMessageBox.warning(self, "Erro", "Funcionalidade não implementada.")
 
