@@ -1,3 +1,5 @@
+Software desenvolvido para apoiar a pesquisa do meu projeto de iniciação científica com o título "DESENVOLVIMENTO DE UM EQUIPAMENTO PARA A AVALIAÇÃO DA ESTABILIDADE POSTURAL EM PESSOAS COM TRANSTORNOS DE EQUILÍBRIO – PARTE 2"
+
 # Aplicativo Desktop para Fisioterapeutas
 
 Este é um aplicativo desktop desenvolvido em Python que permite aos médicos fisioterapeutas cadastrar exames de pacientes em um formato padrão e visualizar gráficos gerados pelo programa para avaliar o desempenho dos pacientes.
@@ -35,3 +37,9 @@ Este é um aplicativo desktop desenvolvido em Python que permite aos médicos fi
 
 1. Clone o repositório:
    git clone https://github.com/seu-usuario/seu-repositorio.git
+
+2. Construa a imagem Docker:
+   docker build -t project-k .
+
+3. Rode o Compose
+    docker-compose up

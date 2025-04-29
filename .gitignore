@@ -1,4 +1,4 @@
-# Python
+
 *.pyc
 *.pyo
 *.pyd
@@ -6,3 +6,5 @@ __pycache__/
 *.db
 *.sqlite3
 *.csv
+docker-compose.yaml
+
