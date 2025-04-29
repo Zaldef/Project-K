@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>PerfilPaciente</class>
  <widget class="QWidget" name="PerfilPaciente">
@@ -6,72 +5,62 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>500</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Perfil do Paciente</string>
   </property>
-
   <layout class="QVBoxLayout" name="verticalLayout">
+
+   <!-- Nome do Paciente -->
    <item>
     <widget class="QLabel" name="labelNome">
      <property name="text">
-      <string>Nome:</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-weight: bold; font-size: 14pt;</string>
+      <string>Nome: [Carregando...]</string>
      </property>
     </widget>
    </item>
+
+   <!-- Prontuário -->
    <item>
     <widget class="QLabel" name="labelProntuario">
      <property name="text">
-      <string>Prontuário:</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-weight: bold; font-size: 14pt;</string>
+      <string>Prontuário: [Carregando...]</string>
      </property>
     </widget>
    </item>
+
+   <!-- Título da tabela -->
    <item>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QLabel" name="labelTituloExames">
+     <property name="text">
+      <string>Exames do Paciente</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+
+   <!-- Tabela de exames -->
+   <item>
+    <widget class="QTableWidget" name="tableExames">
      <property name="columnCount">
       <number>3</number>
      </property>
-     <property name="rowCount">
-      <number>0</number>
-     </property>
-     <column>
-      <property name="text">
+     <property name="horizontalHeaderLabels">
+      <stringlist>
        <string>Data</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
+       <string>Tipo</string>
        <string>Descrição</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Ações</string>
-      </property>
-     </column>
-     <property name="alternatingRowColors">
-      <bool>true</bool>
-     </property>
-     <property name="selectionBehavior">
-      <enum>SelectRows</enum>
-     </property>
-     <property name="editTriggers">
-      <enum>QAbstractItemView.NoEditTriggers</enum>
-     </property>
-     <property name="sizeAdjustPolicy">
-      <enum>QAbstractScrollArea.AdjustToContents</enum>
+      </stringlist>
      </property>
     </widget>
    </item>
+
+   <!-- Botão voltar -->
    <item>
     <widget class="QPushButton" name="botaoVoltar">
      <property name="text">
@@ -79,6 +68,7 @@
      </property>
     </widget>
    </item>
+
   </layout>
  </widget>
  <resources/>
