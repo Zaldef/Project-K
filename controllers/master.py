@@ -4,6 +4,7 @@ from src import database
 from controllers.cadastro_paciente import CadastroPaciente
 from controllers.listar_pacientes import ListarPacientes
 from controllers.cadastro_exame import CadastroExame
+from controllers.visualizar_grafico import VisualizarGraficos
 
 
 class Master(QWidget):
@@ -41,8 +42,9 @@ class Master(QWidget):
         self.hide()
 
     def visualizar_graficos(self):
-        self.labelMensagem.setStyleSheet("color: green;")
-        self.labelMensagem.setText("Visualização de gráficos em construção.")
+        self.prox = VisualizarGraficos("paciente1_20250429170307")  # Aqui você pode passar o ID do exame que deseja visualizar
+        self.prox.show()
+        self.hide()
 
     def gerar_relatorios(self):
         self.labelMensagem.setStyleSheet("color: green;")
