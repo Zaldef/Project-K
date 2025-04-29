@@ -3,12 +3,12 @@ from PyQt5 import uic
 from src import database  # Presumindo que você vá adicionar um método de listar exames por paciente
 
 class PerfilPaciente(QWidget):
-    def __init__(self, paciente_id, master):
+    def __init__(self, paciente_id, ante):
         super().__init__()
         uic.loadUi("ui/perfil_paciente.ui", self)
 
         self.paciente_id = paciente_id
-        self.master = master
+        self.ante = ante
         self.setWindowTitle("Perfil do Paciente")
 
         self.carregar_dados_paciente()
@@ -43,4 +43,4 @@ class PerfilPaciente(QWidget):
 
     def voltar(self):
         self.close()
-        self.master.show()
+        self.ante.show()

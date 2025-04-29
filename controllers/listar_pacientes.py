@@ -52,7 +52,7 @@ class ListarPacientes(QWidget):
             self.tableWidget.setCellWidget(row, 2, widget_botao)
 
     def ver_perfil_paciente(self, paciente_id):
-        self.prox = PerfilPaciente(paciente_id, self.ante)
+        self.prox = PerfilPaciente(paciente_id, self)
         self.prox.show()
         self.close()
 
