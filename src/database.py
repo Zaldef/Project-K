@@ -149,16 +149,32 @@ def inserir_exame(paciente_id, medico_id, data, descricao, caminho_csv):
     conn.close()
 
 def listar_exames_por_paciente(paciente_id):
-    conn = conectar()
-    cursor = conn.cursor()
+    conexao = conectar()
+    cursor = conexao.cursor()
 
-    cursor.execute("""
-        SELECT data, descricao, caminho
-        FROM exame
-        WHERE paciente_id = ?
-        ORDER BY data DESC
-    """, (paciente_id,))
+    try:
+        cursor.execute("""
+            SELECT id, data, caminho, descricao
+            FROM exame
+            WHERE paciente_id = ?
+            ORDER BY data DESC
+        """, (paciente_id,))
+        exames = cursor.fetchall()
+        return exames
+    except Exception as e:
+        print(f"Erro ao listar exames: {e}")
+        return []
+    finally:
+        conexao.close()
 
-    exames = cursor.fetchall()
-    conn.close()
-    return exames
+def excluir_exame(exame_id):
+    try:
+        conn = conectar()
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM exame WHERE id = ?", (exame_id,))
+        conn.commit()
+        return True
+    except sqlite3.Error:
+        return False
+    finally:
+        conn.close()

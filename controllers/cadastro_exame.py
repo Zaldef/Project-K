@@ -7,14 +7,15 @@ from PyQt5 import uic
 from src import database
 
 class CadastroExame(QWidget):
-    def __init__(self, paciente_id, medico_id, parent):
+    def __init__(self, paciente_id, medico_id, ante):
         super().__init__()
         uic.loadUi("ui/cadastro_exame.ui", self)
 
         self.paciente_id = paciente_id
         self.medico_id = medico_id
-        self.parent_ref = parent
+        self.ante = ante
         self.caminho_csv = None
+        self.caminho_csv_temp = None
         self.inputData.setDateTime(QDateTime.currentDateTime())
         self.setWindowTitle("Cadastrar Exame")
 
@@ -26,6 +27,9 @@ class CadastroExame(QWidget):
     def selecionar_csv(self):
         caminho, _ = QFileDialog.getOpenFileName(self, "Selecionar CSV", "", "Arquivos CSV (*.csv)")
         if caminho:
+            if not caminho.lower().endswith('.csv'):
+                QMessageBox.warning(self, "Arquivo inválido", "Selecione um arquivo com extensão .csv.")
+                return
             self.caminho_csv_temp = caminho
             nome_arquivo = os.path.basename(caminho)
             self.labelCSVSelecionado.setText(f"CSV selecionado: {nome_arquivo}")
@@ -34,12 +38,12 @@ class CadastroExame(QWidget):
         data = self.inputData.dateTime().toString("yyyy-MM-dd HH:mm:ss")
         descricao = self.inputDescricao.toPlainText()
 
-        if not data or not descricao or not self.caminho_csv_temp:
+        if not descricao or not self.caminho_csv_temp:
             QMessageBox.warning(self, "Campos obrigatórios", "Preencha todos os campos obrigatórios e selecione um CSV.")
             return
 
         # Define nome do arquivo destino (ainda não copia)
-        nome_arquivo = f"paciente{self.paciente_id}_{datetime.now().strftime('%Y%m%d%H%M%S')}.csv"
+        nome_arquivo = f"paciente{self.paciente_id}_{datetime.utcnow().strftime('%Y%m%d%H%M%S')}.csv"
         pasta_destino = os.path.join("exames", "csvs")
         os.makedirs(pasta_destino, exist_ok=True)
         destino_completo = os.path.join(pasta_destino, nome_arquivo)
@@ -59,10 +63,10 @@ class CadastroExame(QWidget):
 
             QMessageBox.information(self, "Sucesso", "Exame cadastrado com sucesso.")
             self.close()
-            self.parent_ref.show()
+            self.ante.show()
         except Exception as e:
             QMessageBox.critical(self, "Erro", f"Erro ao cadastrar exame:\n{str(e)}")
 
     def voltar(self):
         self.close()
-        self.parent_ref.show()
+        self.ante.show()
