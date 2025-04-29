@@ -30,6 +30,18 @@ def inicializar_banco():
                 FOREIGN KEY (medico_id) REFERENCES medico(id)
             )
         """)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS exame (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                paciente_id INTEGER NOT NULL,
+                medico_id INTEGER NOT NULL,
+                data TEXT NOT NULL,
+                descricao TEXT NOT NULL,
+                caminho TEXT NOT NULL,
+                FOREIGN KEY (paciente_id) REFERENCES paciente(id),
+                FOREIGN KEY (medico_id) REFERENCES medico(id)
+            )
+        """)
         conn.commit()
         conn.close()
 
@@ -125,3 +137,28 @@ def atualizar_paciente(paciente_id, nome, prontuario):
     )
     conn.commit()
     conn.close()
+
+def inserir_exame(paciente_id, medico_id, data, descricao, caminho_csv):
+    conn = conectar()
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO exame (paciente_id, medico_id, data, descricao, caminho)
+        VALUES (?, ?, ?, ?, ?)
+    """, (paciente_id, medico_id, data, descricao, caminho_csv))
+    conn.commit()
+    conn.close()
+
+def listar_exames_por_paciente(paciente_id):
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT data, descricao, caminho
+        FROM exame
+        WHERE paciente_id = ?
+        ORDER BY data DESC
+    """, (paciente_id,))
+
+    exames = cursor.fetchall()
+    conn.close()
+    return exames

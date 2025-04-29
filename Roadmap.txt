@@ -1,0 +1,10 @@
+ListarPacientes
+    Criar um controller & UI para edição de paciente, e retorne a lista de pacientes uma mensagem de "Paciente editado com sucesso"
+    Criar uma função que exclua o paciente e retorne uma mensagem para LISTAR_PACIENTES uma mensagem de "Excluido com sucesso"
+
+Exame
+    criar uma tela linkada a perfil_paciente que permita fazer um cadastro de Exame
+    editar e excluir Exame
+
+QMessageBOX
+    Implementar QMessageBox para exibir mensagens de sucesso ou erro
