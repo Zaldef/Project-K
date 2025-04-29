@@ -11,27 +11,28 @@ class Master(QWidget):
         super().__init__()
         uic.loadUi("ui/master.ui", self)
 
+        self.prox = None
         self.nome = database.pegar_nome_medico_por_id(medico_id)
         self.setWindowTitle("Painel do Médico")
         self.labelBemVindo.setText(f"Bem-vindo, Doutor(a) {self.nome}")
         self.medico_id = medico_id
 
-        self.botaoListarPacientes.clicked.connect(self.listar_pacientes)
         self.botaoCadastrarPaciente.clicked.connect(self.cadastrar_paciente)
+        self.botaoListarPacientes.clicked.connect(self.listar_pacientes)
         self.botaoCadastrarExame.clicked.connect(self.cadastrar_exame)
         self.botaoVisualizarGraficos.clicked.connect(self.visualizar_graficos)
         self.botaoGerarRelatorios.clicked.connect(self.gerar_relatorios)
         self.botaoSair.clicked.connect(self.sair)
 
 
-    def listar_pacientes(self):
-        self.janela_listar_pacientes = ListarPacientes(self.medico_id, self)
-        self.janela_listar_pacientes.show()
+    def cadastrar_paciente(self):
+        self.prox = CadastroPaciente(self, self.medico_id, 0)
+        self.prox.show()
         self.hide()
 
-    def cadastrar_paciente(self):
-        self.janela_Cadastrar_Paciente = CadastroPaciente(self, self.medico_id)
-        self.janela_Cadastrar_Paciente.show()
+    def listar_pacientes(self):
+        self.prox = ListarPacientes(self.medico_id, self)
+        self.prox.show()
         self.hide()
 
     def cadastrar_exame(self):

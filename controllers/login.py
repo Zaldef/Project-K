@@ -11,6 +11,8 @@ class Login(QWidget):
         super().__init__()
         uic.loadUi("ui/login.ui", self)
 
+        self.prox = None
+        self.setWindowTitle("Login")
         # Conecta botões aos métodos
         self.botaoEntrar.clicked.connect(self.entrar)
         self.botaoCadastrar.clicked.connect(self.cadastrar)
@@ -25,16 +27,16 @@ class Login(QWidget):
             self.inputLogin.clear()
             self.inputSenha.clear()
         else:
-            sucesso, id = database.verificar_login(login, senha)
+            sucesso, user_id = database.verificar_login(login, senha)
             if sucesso:
-                self.janela_principal = Master(id)
-                self.janela_principal.show()
+                self.prox = Master(user_id)
+                self.prox.show()
                 self.close()
             else:
                 self.labelMensagem.setStyleSheet("color: red;")
                 self.labelMensagem.setText("Login ou senha inválidos.")
     
     def cadastrar(self):
-        self.janela_cadastro = Cadastro(self)
-        self.janela_cadastro.show()
+        self.prox = Cadastro(self)
+        self.prox.show()
         self.hide()
