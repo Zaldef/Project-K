@@ -1,6 +1,5 @@
 import sys
 from PyQt5.QtWidgets import QApplication 
-
 from controllers.login import Login
 from src.database import inicializar_banco
 

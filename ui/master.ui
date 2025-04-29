@@ -68,19 +68,6 @@
      </property>
     </widget>
    </item>
-   <item>
-    <widget class="QLabel" name="labelMensagem">
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="styleSheet">
-      <string>color: gray; font-size: 10pt;</string>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
 </ui>
