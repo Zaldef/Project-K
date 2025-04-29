@@ -3,17 +3,19 @@ from PyQt5 import uic
 from src import database
 from controllers.perfil_paciente import PerfilPaciente
 from controllers.editar_paciente import EditarPaciente
+from controllers.cadastro_paciente import CadastroPaciente
 
 class ListarPacientes(QWidget):
-    def __init__(self, medico_id, master):
+    def __init__(self, medico_id, parent):
         super().__init__()
         uic.loadUi("ui/listar_pacientes.ui", self)
-
-        self.master = master
+        self.prox = None
+        self.parent = parent
         self.medico_id = medico_id
         self.setWindowTitle("Listar Pacientes")
 
         self.carregar_pacientes()
+        self.botaoCadastrarPaciente.clicked.connect(self.cadastrar_paciente)
         self.botaoVoltar.clicked.connect(self.voltar)
 
     def carregar_pacientes(self):
@@ -49,13 +51,13 @@ class ListarPacientes(QWidget):
             self.tableWidget.setCellWidget(row, 2, widget_botao)
 
     def ver_perfil_paciente(self, paciente_id):
-        self.perfil_paciente = PerfilPaciente(paciente_id, self.master)
-        self.perfil_paciente.show()
+        self.prox = PerfilPaciente(paciente_id, self.parent)
+        self.prox.show()
         self.close()
 
     def editar_paciente(self, paciente_id):
-        self.edita_paciente = EditarPaciente(paciente_id, self)
-        self.edita_paciente.show()
+        self.prox = EditarPaciente(paciente_id, self)
+        self.prox.show()
         self.hide()
     
     def excluir_paciente(self, paciente_id):
@@ -76,9 +78,13 @@ class ListarPacientes(QWidget):
             else:
                 QMessageBox.critical(self, "Erro", "Erro ao excluir o paciente.")
 
+    def cadastrar_paciente(self):
+        self.prox = CadastroPaciente(self, self.medico_id, 1)
+        self.prox.show()
+        self.hide()
 
     def voltar(self):
         self.close()
-        self.master.show()
+        self.parent.show()
 
 
