@@ -8,3 +8,7 @@ Exame
 
 QMessageBOX
     Implementar QMessageBox para exibir mensagens de sucesso ou erro
+
+29/04
+REMOVER mensagem pos cadastro de paciente e subistituir por uma QMessageBox
+ADICIONAR link para cadastro de exame
